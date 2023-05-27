@@ -1,8 +1,17 @@
+let texto= document.getElementById("texto").value;
+let tituloMensaje= document.getElementById("titulo-mensaje");
+let parrafo= document.getElementById("parrafo");
+let draw= document.getElementById("draw");
+const textA= document.getElementById("textA");
+copy.style.display = "none"
+textA.style.display = "none"
+
 function encriptar(){
     let texto= document.getElementById("texto").value;
     let tituloMensaje= document.getElementById("titulo-mensaje");
     let parrafo= document.getElementById("parrafo");
     let draw= document.getElementById("draw");
+    const textA= document.getElementById("textA");
 
 
     let textoCifrado = texto
@@ -13,24 +22,35 @@ function encriptar(){
                         .replace(/o/gi, "ovnie");
 
     if  (texto.length !=0 ){
-        document.getElementById("texto").value=textoCifrado;
-        tituloMensaje.textContent = "Texto encriptado con exito";
+        
+        textA.textContent = textoCifrado;
         parrafo.textContent="";
-        draw.src="/Portafolio/Img encript/dev-ball.png";
+        copy.style.display = "block"
+        
+        draw.style.display = "none"
+        textA.style.display = "flex"
+        tituloMensaje.textContent = "";
+        parrafo.textContent = ""
+        
     }
 
     else{
         draw.src="/Portafolio/Img encript/Vaporeon Confundido.png";
         tituloMensaje.textContent="Ningun mensaje fue encontrado"
         alert("Debes escribir alguna palabra");
+        copy.style.display = "none"
     }
+    return textoCifrado
 }
 
     function desencriptar() {
         let texto = document.getElementById("texto").value;
         let tituloMensaje = document.getElementById("titulo-mensaje");
         let parrafo = document.getElementById("parrafo");
-        let muñeco = document.getElementById("muñeco");
+        let draw = document.getElementById("draw");
+        const textA= document.getElementById("textA");
+
+
       
         let textoCifrado = texto
           .replace(/exa/gi, "e")
@@ -40,14 +60,30 @@ function encriptar(){
           .replace(/ufeo/gi, "u");
         
           if (texto.length != 0) {
-            document.getElementById("texto").value = textoCifrado;
-            tituloMensaje.textContent = "Texto desencriptado con éxito";
+           
+            textA.textContent = textoCifrado;
             parrafo.textContent = "";
-            draw.src = "/Portafolio/Img encript/Vaporeon.png";
+            draw.style.diplay="none";
+            copy.style.display = "block"
+            parrafo.style.display = "none"
+            draw.style.display = "none"
+            parrafo.textContent = ""
+            
+            textA.style.display = "flex"
+            tituloMensaje.textContent = "";
           } else {
             draw.src = "/Portafolio/Img encript/Vaporeon Confundido.png";
             tituloMensaje.textContent = "Ningún mensaje fue encontrado";
             parrafo.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
             alert("Ooops!", "Debes ingresar un texto", "warning");
+            copy.style.display = "none"
           }
+          return textoCifrado
         }
+
+       function copiar(){
+      
+        textA.select();
+        navigator.clipboard.writeText(textA.value)
+       
+       }
