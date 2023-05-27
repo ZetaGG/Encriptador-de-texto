@@ -189,7 +189,8 @@
 
   .encriptado .copy{
     
-    width: 40%;
+    margin: 4%;
+    width: 80%;
     height: 40px;
     border-radius: 45px;
     background: rgb(63,243,251);
@@ -198,9 +199,9 @@ transition: 0.09s;
 
   }
   .copy:hover{
-    margin: 0.2%;
+    margin: 3.7%;
     padding: 0.9%;
-width: 39%;
+width: 78%;
 
 }
 
